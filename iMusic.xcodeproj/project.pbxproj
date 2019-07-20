@@ -8,20 +8,46 @@
 
 /* Begin PBXBuildFile section */
 		0F0C7BCC22E1C44200578584 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BCB22E1C44200578584 /* AppDelegate.swift */; };
-		0F0C7BCE22E1C44200578584 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BCD22E1C44200578584 /* ViewController.swift */; };
-		0F0C7BD122E1C44200578584 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F0C7BCF22E1C44200578584 /* Main.storyboard */; };
 		0F0C7BD322E1C44400578584 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F0C7BD222E1C44400578584 /* Assets.xcassets */; };
-		0F0C7BD622E1C44400578584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F0C7BD422E1C44400578584 /* LaunchScreen.storyboard */; };
+		0F0C7BE222E1C56400578584 /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BE122E1C56400578584 /* TrackListView.swift */; };
+		0F0C7BE422E1C58000578584 /* TrackListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BE322E1C58000578584 /* TrackListPresenter.swift */; };
+		0F0C7BE622E1C58A00578584 /* TrackListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BE522E1C58A00578584 /* TrackListRouter.swift */; };
+		0F0C7BE822E1C59800578584 /* TrackListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BE722E1C59800578584 /* TrackListConfigurator.swift */; };
+		0F0C7BEA22E1C5AD00578584 /* TrackListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BE922E1C5AD00578584 /* TrackListInteractor.swift */; };
+		0F0C7BEC22E1C5EA00578584 /* TrackListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BEB22E1C5EA00578584 /* TrackListProtocols.swift */; };
+		0F0C7BF122E1CD5A00578584 /* TrackListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0C7BF022E1CD5A00578584 /* TrackListView.xib */; };
+		0F0C7BF922E1EA0300578584 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BF822E1EA0300578584 /* Track.swift */; };
+		0F0C7BFC22E1EC4E00578584 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BFA22E1EC4D00578584 /* TrackTableViewCell.swift */; };
+		0F0C7BFD22E1EC4E00578584 /* TrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0C7BFB22E1EC4D00578584 /* TrackTableViewCell.xib */; };
+		0F0C7BFF22E2038800578584 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BFE22E2038800578584 /* TrackManager.swift */; };
+		0F0C7C0122E2075A00578584 /* TrackListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0022E2075A00578584 /* TrackListService.swift */; };
+		0F0C7C0322E2087100578584 /* TrackDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0222E2087100578584 /* TrackDownloadService.swift */; };
+		0F0C7C0822E21A5500578584 /* JSONTrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0722E21A5500578584 /* JSONTrackList.swift */; };
+		0F0C7C0B22E2FD0900578584 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0A22E2FD0900578584 /* TrackViewModel.swift */; };
+		0F0C7C1022E3253400578584 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0F22E3253400578584 /* ErrorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F0C7BC822E1C44200578584 /* iMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F0C7BCB22E1C44200578584 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F0C7BCD22E1C44200578584 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0F0C7BD022E1C44200578584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F0C7BD222E1C44400578584 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0F0C7BD522E1C44400578584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F0C7BD722E1C44400578584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F0C7BE122E1C56400578584 /* TrackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
+		0F0C7BE322E1C58000578584 /* TrackListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListPresenter.swift; sourceTree = "<group>"; };
+		0F0C7BE522E1C58A00578584 /* TrackListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListRouter.swift; sourceTree = "<group>"; };
+		0F0C7BE722E1C59800578584 /* TrackListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListConfigurator.swift; sourceTree = "<group>"; };
+		0F0C7BE922E1C5AD00578584 /* TrackListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListInteractor.swift; sourceTree = "<group>"; };
+		0F0C7BEB22E1C5EA00578584 /* TrackListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListProtocols.swift; sourceTree = "<group>"; };
+		0F0C7BF022E1CD5A00578584 /* TrackListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackListView.xib; sourceTree = "<group>"; };
+		0F0C7BF822E1EA0300578584 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		0F0C7BFA22E1EC4D00578584 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
+		0F0C7BFB22E1EC4D00578584 /* TrackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackTableViewCell.xib; sourceTree = "<group>"; };
+		0F0C7BFE22E2038800578584 /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
+		0F0C7C0022E2075A00578584 /* TrackListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListService.swift; sourceTree = "<group>"; };
+		0F0C7C0222E2087100578584 /* TrackDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDownloadService.swift; sourceTree = "<group>"; };
+		0F0C7C0722E21A5500578584 /* JSONTrackList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTrackList.swift; sourceTree = "<group>"; };
+		0F0C7C0A22E2FD0900578584 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
+		0F0C7C0F22E3253400578584 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +80,91 @@
 		0F0C7BCA22E1C44200578584 /* iMusic */ = {
 			isa = PBXGroup;
 			children = (
+				0F0C7BDF22E1C51A00578584 /* Modules */,
+				0F0C7C0E22E3250D00578584 /* Managers */,
+				0F0C7BED22E1C65100578584 /* Services */,
+				0F0C7BEE22E1C66100578584 /* Entities */,
 				0F0C7BCB22E1C44200578584 /* AppDelegate.swift */,
-				0F0C7BCD22E1C44200578584 /* ViewController.swift */,
-				0F0C7BCF22E1C44200578584 /* Main.storyboard */,
 				0F0C7BD222E1C44400578584 /* Assets.xcassets */,
-				0F0C7BD422E1C44400578584 /* LaunchScreen.storyboard */,
 				0F0C7BD722E1C44400578584 /* Info.plist */,
 			);
 			path = iMusic;
+			sourceTree = "<group>";
+		};
+		0F0C7BDF22E1C51A00578584 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				0F0C7BE022E1C54800578584 /* TrackList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		0F0C7BE022E1C54800578584 /* TrackList */ = {
+			isa = PBXGroup;
+			children = (
+				0F0C7BE122E1C56400578584 /* TrackListView.swift */,
+				0F0C7BE322E1C58000578584 /* TrackListPresenter.swift */,
+				0F0C7BE922E1C5AD00578584 /* TrackListInteractor.swift */,
+				0F0C7BE522E1C58A00578584 /* TrackListRouter.swift */,
+				0F0C7BE722E1C59800578584 /* TrackListConfigurator.swift */,
+				0F0C7BEB22E1C5EA00578584 /* TrackListProtocols.swift */,
+				0F0C7BEF22E1CCDD00578584 /* Views */,
+				0F0C7C0922E2FCE100578584 /* ViewModels */,
+			);
+			path = TrackList;
+			sourceTree = "<group>";
+		};
+		0F0C7BED22E1C65100578584 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0F0C7C0022E2075A00578584 /* TrackListService.swift */,
+				0F0C7C0222E2087100578584 /* TrackDownloadService.swift */,
+				0F0C7C0622E21A3100578584 /* JSON */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0F0C7BEE22E1C66100578584 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0F0C7BF822E1EA0300578584 /* Track.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		0F0C7BEF22E1CCDD00578584 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0F0C7BF022E1CD5A00578584 /* TrackListView.xib */,
+				0F0C7BFB22E1EC4D00578584 /* TrackTableViewCell.xib */,
+				0F0C7BFA22E1EC4D00578584 /* TrackTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0F0C7C0622E21A3100578584 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				0F0C7C0722E21A5500578584 /* JSONTrackList.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		0F0C7C0922E2FCE100578584 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0F0C7C0A22E2FD0900578584 /* TrackViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0F0C7C0E22E3250D00578584 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0F0C7BFE22E2038800578584 /* TrackManager.swift */,
+				0F0C7C0F22E3253400578584 /* ErrorManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +225,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F0C7BD622E1C44400578584 /* LaunchScreen.storyboard in Resources */,
+				0F0C7BFD22E1EC4E00578584 /* TrackTableViewCell.xib in Resources */,
+				0F0C7BF122E1CD5A00578584 /* TrackListView.xib in Resources */,
 				0F0C7BD322E1C44400578584 /* Assets.xcassets in Resources */,
-				0F0C7BD122E1C44200578584 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,31 +238,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F0C7BCE22E1C44200578584 /* ViewController.swift in Sources */,
+				0F0C7C0B22E2FD0900578584 /* TrackViewModel.swift in Sources */,
+				0F0C7C1022E3253400578584 /* ErrorManager.swift in Sources */,
+				0F0C7BEA22E1C5AD00578584 /* TrackListInteractor.swift in Sources */,
+				0F0C7BE822E1C59800578584 /* TrackListConfigurator.swift in Sources */,
+				0F0C7BE422E1C58000578584 /* TrackListPresenter.swift in Sources */,
+				0F0C7BF922E1EA0300578584 /* Track.swift in Sources */,
+				0F0C7BFC22E1EC4E00578584 /* TrackTableViewCell.swift in Sources */,
+				0F0C7BE222E1C56400578584 /* TrackListView.swift in Sources */,
+				0F0C7C0822E21A5500578584 /* JSONTrackList.swift in Sources */,
+				0F0C7BEC22E1C5EA00578584 /* TrackListProtocols.swift in Sources */,
+				0F0C7C0322E2087100578584 /* TrackDownloadService.swift in Sources */,
+				0F0C7BE622E1C58A00578584 /* TrackListRouter.swift in Sources */,
+				0F0C7C0122E2075A00578584 /* TrackListService.swift in Sources */,
 				0F0C7BCC22E1C44200578584 /* AppDelegate.swift in Sources */,
+				0F0C7BFF22E2038800578584 /* TrackManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		0F0C7BCF22E1C44200578584 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0F0C7BD022E1C44200578584 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0F0C7BD422E1C44400578584 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0F0C7BD522E1C44400578584 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0F0C7BD822E1C44400578584 /* Debug */ = {
