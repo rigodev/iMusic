@@ -6,6 +6,8 @@
 //  Copyright © 2019 Igor Shuvalov. All rights reserved.
 //
 
+import UIKit
+
 class TrackListPresenter {
     
     weak var view: TrackListViewProtocol?
@@ -37,21 +39,38 @@ extension TrackListPresenter: TrackListPresenterProtocol {
         var trackViewModel: TrackViewModel?
         
         if let track = interactor?.getTrack(forIndex: index) {
-            trackViewModel = TrackViewModel(name: track.name, artist: track.artist)
+            trackViewModel = TrackViewModel(name: track.name,
+                                            artist: track.artist)
         }
         
         return trackViewModel
+    }
+    
+    func getTrackThumbnail(forCellIndex index: Int) {
+        view?.toggleThumbnailSpinner(forCellIndex: index, shouldShow: true)
+        interactor?.fetchTrackThumbnail(forCellIndex: index)
     }
 }
 
 // MARK: - TrackListInteractorOutputProtocol
 extension TrackListPresenter: TrackListInteractorOutputProtocol {
-
+    
     func didFetchTracksSuccess() {
         view?.refreshTracks()
     }
     
     func didFetchTracksFailure(withError appError: AppError) {
         router?.presentAlert(withMessage: appError.description)
+    }
+    
+    func didFetchTrackThumbnail(forCellIndex index: Int, withResult result: ServiceResult<UIImage>) {
+        view?.toggleThumbnailSpinner(forCellIndex: index, shouldShow: false)
+        
+        switch result {
+        case .success(let image):
+            view?.setThumbnail(withImage: image, forCellindex: index)
+        case .failure:
+            break
+        }
     }
 }

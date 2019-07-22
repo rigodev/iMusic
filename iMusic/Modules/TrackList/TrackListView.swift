@@ -9,7 +9,7 @@
 import UIKit
 
 class TrackListView: UIViewController {
-
+    
     @IBOutlet weak var tracksSearchBar: UISearchBar!
     @IBOutlet weak var tracksTableView: UITableView!
     
@@ -24,7 +24,7 @@ class TrackListView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configarator.configure(with: self)
         presenter?.notifyViewLoaded()
     }
@@ -55,6 +55,24 @@ extension TrackListView: TrackListViewProtocol {
             self?.tracksTableView.reloadData()
         }
     }
+    
+    func setThumbnail(withImage image: UIImage, forCellindex index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)        
+        DispatchQueue.main.async {
+            if let cell = self.tracksTableView.cellForRow(at: indexPath) as? TrackTableViewCell {
+                cell.thumbnailImage = image
+            }
+        }
+    }
+    
+    func toggleThumbnailSpinner(forCellIndex index: Int, shouldShow: Bool) {
+        let indexPath = IndexPath(row: index, section: 0)
+        DispatchQueue.main.async {
+            if let cell = self.tracksTableView.cellForRow(at: indexPath) as? TrackTableViewCell {
+                cell.shouldShowThumbnailSpinner = shouldShow
+            }
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -69,14 +87,25 @@ extension TrackListView: UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.dataSource = self
         cell.viewModel = presenter?.getTrackViewModel(forCellIndex: indexPath.row)
+        
         return cell
+    }
+}
+
+// MARK: - TrackTableViewCellDataSource
+extension TrackListView: TrackTableViewCellDataSource {
+    
+    func getTrackThumbnail(forCell cell: UITableViewCell) {
+        guard let indexPath = tracksTableView.indexPath(for: cell) else { return }
+        presenter?.getTrackThumbnail(forCellIndex: indexPath.row)
     }
 }
 
 // MARK: - UITableViewDelegate
 extension TrackListView: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
     }

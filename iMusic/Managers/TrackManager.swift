@@ -6,15 +6,19 @@
 //  Copyright © 2019 Igor Shuvalov. All rights reserved.
 //
 
-typealias TrackListHandler = (ServiceResults<[Track]>) -> Void
+import UIKit
 
-enum ServiceResults<T> {
+typealias TrackListHandler = (ServiceResult<[Track]>) -> Void
+typealias TrackThumbnailHandler = (ServiceResult<UIImage>) -> Void
+
+enum ServiceResult<T> {
     case success(T)
     case failure(AppError)
 }
 
 protocol TrackManagerProtocol: class {
     func fetchTracks(with searchString: String, completion: @escaping TrackListHandler)
+    func fetchThumbnail(forTrack track: Track, completion: @escaping TrackThumbnailHandler)
 }
 
 class TrackManager {
@@ -23,27 +27,63 @@ class TrackManager {
         return TrackListService()
     }()
     
-    private lazy var trackDownloadService: TrackDownloadServiceProtocol = {
-        return TrackDownloadService()
+    private lazy var trackThumbnailDownloadService: DownloadService = {
+        return DownloadService<Thumbnail>()
     }()
+    
+    private let thumbnailsCache = NSCache<NSString, UIImage>()
 }
 
 // MARK: - TrackManagerProtocol
 extension TrackManager: TrackManagerProtocol {
     
-    func fetchTracks(with searchString: String, completion: @escaping TrackListHandler) {
-        trackListService.fetchTracks(with: searchString) { (results) in
-            switch results {
+    func fetchTracks(with searchString: String, completion: @escaping TrackListHandler) {        
+        trackListService.fetchTracks(with: searchString) { (result) in
+            switch result {
             case .success(let jsonTracks):
                 var tracks: [Track] = []
                 
                 for jsonTrack in jsonTracks {
-                    tracks.append(Track(name: jsonTrack.trackName,
+                    tracks.append(Track(id: jsonTrack.trackId,
+                                        name: jsonTrack.trackName,
                                         artist: jsonTrack.artistName,
-                                        previewURL: jsonTrack.previewUrl))
+                                        previewURLString: jsonTrack.previewUrl,
+                                        thumbnailURLString: jsonTrack.artworkUrl100))
                 }
                 
                 completion(.success(tracks))
+            case .failure(let appError):
+                completion(.failure(appError))
+                break
+            }
+        }
+    }
+    
+    func fetchThumbnail(forTrack track: Track, completion: @escaping TrackThumbnailHandler) {
+  
+        guard
+            let trackId = track.id,
+            let thumbnail = Thumbnail(id: trackId, urlString: track.thumbnailURLString)
+        else {
+                return
+        }
+        
+        if let image = thumbnailsCache.object(forKey: String(trackId) as NSString) {
+            completion(.success(image))
+            return
+        }
+        
+        trackThumbnailDownloadService.startDownload(thumbnail) { [weak self] (result) in
+            
+            switch result {
+            case .success(let imageData):
+                guard let image = UIImage(data: imageData) else {
+                    return
+                }
+                
+                self?.thumbnailsCache.setObject(image, forKey: String(trackId) as NSString)
+                
+                completion(.success(image))
             case .failure(let appError):
                 completion(.failure(appError))
                 break

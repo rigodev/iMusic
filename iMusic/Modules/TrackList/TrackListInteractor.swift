@@ -22,8 +22,8 @@ extension TrackListInteractor: TrackListInteractorInputProtocol {
     }
     
     func fetchTracks(with searchString: String) {
-        trackmanager.fetchTracks(with: searchString) { [weak self] (results) in
-            switch results {
+        trackmanager.fetchTracks(with: searchString) { [weak self] (result) in
+            switch result {
             case .success(let tracks):
                 self?.tracks = tracks
                 self?.presenter?.didFetchTracksSuccess()
@@ -36,5 +36,20 @@ extension TrackListInteractor: TrackListInteractorInputProtocol {
     func getTrack(forIndex index: Int) -> Track? {
         guard index < tracks.count else { return nil }
         return tracks[index]
+    }
+    
+    func fetchTrackThumbnail(forCellIndex index: Int) {
+        guard index < tracks.count else { return }
+        
+        let track = tracks[index]
+        
+        trackmanager.fetchThumbnail(forTrack: track) { [weak self] (result) in            
+            switch result {
+            case .success(let image):
+                self?.presenter?.didFetchTrackThumbnail(forCellIndex: index, withResult: .success(image))
+            case .failure(let appError):
+                self?.presenter?.didFetchTrackThumbnail(forCellIndex: index, withResult: .failure(appError))
+            }
+        }
     }
 }

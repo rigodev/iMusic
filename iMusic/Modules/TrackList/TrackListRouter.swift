@@ -10,7 +10,7 @@ import UIKit
 
 class TrackListRouter {
     
-    weak var view: TrackListView?
+    weak var view: UIViewController?
 }
 
 // MARK: - TrackListRouterProtocol

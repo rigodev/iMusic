@@ -11,7 +11,9 @@ struct JSONTrackList: Decodable {
 }
 
 struct JSONTrack: Decodable {
+    let trackId: Int?
     let trackName: String?
     let artistName: String?
     let previewUrl: String?
+    let artworkUrl100: String?
 }

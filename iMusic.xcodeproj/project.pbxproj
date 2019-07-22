@@ -21,10 +21,12 @@
 		0F0C7BFD22E1EC4E00578584 /* TrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0C7BFB22E1EC4D00578584 /* TrackTableViewCell.xib */; };
 		0F0C7BFF22E2038800578584 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7BFE22E2038800578584 /* TrackManager.swift */; };
 		0F0C7C0122E2075A00578584 /* TrackListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0022E2075A00578584 /* TrackListService.swift */; };
-		0F0C7C0322E2087100578584 /* TrackDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0222E2087100578584 /* TrackDownloadService.swift */; };
+		0F0C7C0322E2087100578584 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0222E2087100578584 /* DownloadService.swift */; };
 		0F0C7C0822E21A5500578584 /* JSONTrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0722E21A5500578584 /* JSONTrackList.swift */; };
 		0F0C7C0B22E2FD0900578584 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0A22E2FD0900578584 /* TrackViewModel.swift */; };
 		0F0C7C1022E3253400578584 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0F22E3253400578584 /* ErrorManager.swift */; };
+		0F0C7C1222E4F15200578584 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C1122E4F15200578584 /* Download.swift */; };
+		0F0C7C1422E5117D00578584 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C1322E5117D00578584 /* Thumbnail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,10 +46,12 @@
 		0F0C7BFB22E1EC4D00578584 /* TrackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackTableViewCell.xib; sourceTree = "<group>"; };
 		0F0C7BFE22E2038800578584 /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
 		0F0C7C0022E2075A00578584 /* TrackListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListService.swift; sourceTree = "<group>"; };
-		0F0C7C0222E2087100578584 /* TrackDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDownloadService.swift; sourceTree = "<group>"; };
+		0F0C7C0222E2087100578584 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		0F0C7C0722E21A5500578584 /* JSONTrackList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTrackList.swift; sourceTree = "<group>"; };
 		0F0C7C0A22E2FD0900578584 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		0F0C7C0F22E3253400578584 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		0F0C7C1122E4F15200578584 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		0F0C7C1322E5117D00578584 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				0F0C7C0022E2075A00578584 /* TrackListService.swift */,
-				0F0C7C0222E2087100578584 /* TrackDownloadService.swift */,
+				0F0C7C0222E2087100578584 /* DownloadService.swift */,
 				0F0C7C0622E21A3100578584 /* JSON */,
 			);
 			path = Services;
@@ -128,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				0F0C7BF822E1EA0300578584 /* Track.swift */,
+				0F0C7C1322E5117D00578584 /* Thumbnail.swift */,
+				0F0C7C1122E4F15200578584 /* Download.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -238,7 +244,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F0C7C1422E5117D00578584 /* Thumbnail.swift in Sources */,
 				0F0C7C0B22E2FD0900578584 /* TrackViewModel.swift in Sources */,
+				0F0C7C1222E4F15200578584 /* Download.swift in Sources */,
 				0F0C7C1022E3253400578584 /* ErrorManager.swift in Sources */,
 				0F0C7BEA22E1C5AD00578584 /* TrackListInteractor.swift in Sources */,
 				0F0C7BE822E1C59800578584 /* TrackListConfigurator.swift in Sources */,
@@ -248,7 +256,7 @@
 				0F0C7BE222E1C56400578584 /* TrackListView.swift in Sources */,
 				0F0C7C0822E21A5500578584 /* JSONTrackList.swift in Sources */,
 				0F0C7BEC22E1C5EA00578584 /* TrackListProtocols.swift in Sources */,
-				0F0C7C0322E2087100578584 /* TrackDownloadService.swift in Sources */,
+				0F0C7C0322E2087100578584 /* DownloadService.swift in Sources */,
 				0F0C7BE622E1C58A00578584 /* TrackListRouter.swift in Sources */,
 				0F0C7C0122E2075A00578584 /* TrackListService.swift in Sources */,
 				0F0C7BCC22E1C44200578584 /* AppDelegate.swift in Sources */,

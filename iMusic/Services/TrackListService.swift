@@ -8,11 +8,11 @@
 
 import Foundation
 
-typealias ListServiceResults = (ServiceResults<[JSONTrack]>) -> Void
-typealias ParseJSONDataResult = ServiceResults<[JSONTrack]?>
+typealias ListServiceHandler = (ServiceResult<[JSONTrack]>) -> Void
+typealias ParseJSONDataResult = ServiceResult<[JSONTrack]?>
 
 protocol TrackListServiceProtocol: class {
-    func fetchTracks(with searchString: String, completion: @escaping ListServiceResults)
+    func fetchTracks(with searchString: String, completion: @escaping ListServiceHandler)
 }
 
 class TrackListService {
@@ -59,7 +59,7 @@ class TrackListService {
 // MARK: - TrackListServiceProtocol
 extension TrackListService: TrackListServiceProtocol {
     
-    func fetchTracks(with searchString: String, completion: @escaping ListServiceResults) {
+    func fetchTracks(with searchString: String, completion: @escaping ListServiceHandler) {
         dataTask?.cancel()
         
         guard let url = RequestType.tracks(searchString: searchString).urlRequest else { return }
