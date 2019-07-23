@@ -26,8 +26,9 @@ extension TrackListPresenter: TrackListPresenterProtocol {
         guard
             let trackString = view?.getSearchBarString(),
             !trackString.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-            else { return }
+        else { return }
         
+        view?.toggleTracksTableView(shouldHide: true)
         interactor?.fetchTracks(with: trackString)
     }
     
@@ -40,15 +41,32 @@ extension TrackListPresenter: TrackListPresenterProtocol {
         
         if let track = interactor?.getTrack(forIndex: index) {
             trackViewModel = TrackViewModel(name: track.name,
-                                            artist: track.artist)
+                                            artist: track.artist,
+                                            state: track.state)
         }
         
         return trackViewModel
     }
     
+    func getSoundTrack(forCellIndex index: Int) {
+        view?.setTrackState(.downloading, forCellIndex: index)
+        interactor?.fetchSoundTrack(forCellIndex: index)
+    }
+    
+    func cancelSoundTrack(forCellIndex index: Int) {
+        view?.setTrackState(.waitToDownload, forCellIndex: index)
+        interactor?.cancelFetchSoundTrack(forCellIndex: index)
+    }
+    
     func getTrackThumbnail(forCellIndex index: Int) {
         view?.toggleThumbnailSpinner(forCellIndex: index, shouldShow: true)
         interactor?.fetchTrackThumbnail(forCellIndex: index)
+    }
+    
+    func playSoundTrack(forCellIndex index: Int) {
+        if let soundTrackURL = interactor?.getSoundTrackURL(forCellIndex: index) {
+            router?.showPlayer(withSoundTrackURL: soundTrackURL)
+        }
     }
 }
 
@@ -56,6 +74,7 @@ extension TrackListPresenter: TrackListPresenterProtocol {
 extension TrackListPresenter: TrackListInteractorOutputProtocol {
     
     func didFetchTracksSuccess() {
+        view?.toggleTracksTableView(shouldHide: false)
         view?.refreshTracks()
     }
     
@@ -68,9 +87,18 @@ extension TrackListPresenter: TrackListInteractorOutputProtocol {
         
         switch result {
         case .success(let image):
-            view?.setThumbnail(withImage: image, forCellindex: index)
+            view?.setThumbnail(image, forCellIndex: index)
         case .failure:
-            break
+            view?.setThumbnail(nil, forCellIndex: index)
+        }
+    }
+    
+    func didFetchSoundTrack(forCellIndex index: Int, withResult result: ServiceResult<Data>) {
+        switch result {
+        case .success:
+            view?.setTrackState(.waitToPlay, forCellIndex: index)
+        case .failure:
+            view?.setTrackState(.waitToDownload, forCellIndex: index)
         }
     }
 }

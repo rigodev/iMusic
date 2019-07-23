@@ -8,10 +8,25 @@
 
 import Foundation
 
-struct Track {
+enum TrackState {
+    case waitToDownload, downloading, waitToPlay
+}
+
+class Track {
     let id: Int?
     let name: String?
     let artist: String?
     let previewURLString: String?
     let thumbnailURLString: String?
+    
+    var state: TrackState?
+    
+    init(id: Int?, name: String?, artist: String?, previewURLString: String?, thumbnailURLString: String?, state: TrackState?) {
+        self.id = id
+        self.name = name
+        self.artist = artist
+        self.previewURLString = previewURLString
+        self.thumbnailURLString = thumbnailURLString
+        self.state = state
+    }
 }

@@ -23,13 +23,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="431" height="112.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZa-1X-t2H">
-                                <rect key="frame" x="0.0" y="0.0" width="99.5" height="112.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="112.5" height="112.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Q9-gD-gbR">
-                                        <rect key="frame" x="5" y="5" width="89.5" height="102.5"/>
+                                        <rect key="frame" x="5" y="5" width="102.5" height="102.5"/>
                                     </imageView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qHm-4h-S59">
-                                        <rect key="frame" x="31" y="38" width="37" height="37"/>
+                                        <rect key="frame" x="38" y="38" width="37" height="37"/>
                                         <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -40,19 +40,19 @@
                                     <constraint firstItem="qHm-4h-S59" firstAttribute="centerY" secondItem="bZa-1X-t2H" secondAttribute="centerY" id="DnQ-Yb-gbx"/>
                                     <constraint firstAttribute="bottom" secondItem="3Q9-gD-gbR" secondAttribute="bottom" constant="5" id="JWX-GX-LCK"/>
                                     <constraint firstItem="qHm-4h-S59" firstAttribute="centerX" secondItem="bZa-1X-t2H" secondAttribute="centerX" id="K5P-Es-FWo"/>
-                                    <constraint firstAttribute="width" secondItem="bZa-1X-t2H" secondAttribute="height" multiplier="99:112" id="RAm-us-ahD"/>
+                                    <constraint firstAttribute="width" secondItem="bZa-1X-t2H" secondAttribute="height" multiplier="1:1" id="RAm-us-ahD"/>
                                     <constraint firstAttribute="trailing" secondItem="3Q9-gD-gbR" secondAttribute="trailing" constant="5" id="e6o-jY-WBo"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XRW-eG-BQD">
-                                <rect key="frame" x="99.5" y="0.0" width="219" height="112.5"/>
+                                <rect key="frame" x="112.5" y="0.0" width="206" height="112.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjs-GG-uKi">
-                                        <rect key="frame" x="0.0" y="0.0" width="219" height="56.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="206" height="56.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOX-m1-mcg">
-                                                <rect key="frame" x="0.0" y="0.0" width="219" height="56.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="206" height="56.5"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -65,11 +65,11 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6l-rE-kpn">
-                                        <rect key="frame" x="0.0" y="56.5" width="219" height="56"/>
+                                        <rect key="frame" x="0.0" y="56.5" width="206" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDH-Iw-OlL">
-                                                <rect key="frame" x="0.0" y="0.0" width="219" height="56"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="206" height="56"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -86,12 +86,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lk-TK-X7r">
                                 <rect key="frame" x="318.5" y="0.0" width="112.5" height="112.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7v-Eg-lgO">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7v-Eg-lgO" customClass="TrackButton" customModule="iMusic" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="92.5" height="92.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="H7v-Eg-lgO" secondAttribute="height" multiplier="1:1" id="x1d-B5-rtR"/>
-                                        </constraints>
-                                        <state key="normal" image="play"/>
+                                        <connections>
+                                            <action selector="trackButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NK6-SG-3xn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -99,6 +98,7 @@
                                     <constraint firstItem="H7v-Eg-lgO" firstAttribute="top" secondItem="2lk-TK-X7r" secondAttribute="top" constant="10" id="FoM-Lg-QsK"/>
                                     <constraint firstAttribute="trailing" secondItem="H7v-Eg-lgO" secondAttribute="trailing" constant="10" id="IgY-1e-tiE"/>
                                     <constraint firstItem="H7v-Eg-lgO" firstAttribute="leading" secondItem="2lk-TK-X7r" secondAttribute="leading" constant="10" id="Qtu-3s-tEq"/>
+                                    <constraint firstAttribute="width" secondItem="2lk-TK-X7r" secondAttribute="height" multiplier="1:1" id="hWT-KU-Ts2"/>
                                     <constraint firstAttribute="bottom" secondItem="H7v-Eg-lgO" secondAttribute="bottom" constant="10" id="iAL-2Y-mCH"/>
                                     <constraint firstItem="H7v-Eg-lgO" firstAttribute="centerX" secondItem="2lk-TK-X7r" secondAttribute="centerX" id="nOh-uf-1He"/>
                                     <constraint firstItem="H7v-Eg-lgO" firstAttribute="centerY" secondItem="2lk-TK-X7r" secondAttribute="centerY" id="rOW-eu-Rcr"/>
@@ -118,13 +118,11 @@
             <connections>
                 <outlet property="thumbnailSpinner" destination="qHm-4h-S59" id="8jC-zj-99E"/>
                 <outlet property="trackArtistLabel" destination="UDH-Iw-OlL" id="Ozd-it-9SP"/>
+                <outlet property="trackButton" destination="H7v-Eg-lgO" id="8dg-Fj-7mb"/>
                 <outlet property="trackNameLabel" destination="qOX-m1-mcg" id="1fH-II-UGq"/>
                 <outlet property="trackThumbnailImageView" destination="3Q9-gD-gbR" id="zAK-hg-o4g"/>
             </connections>
             <point key="canvasLocation" x="118.11594202898551" y="57.924107142857139"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="play" width="64" height="64"/>
-    </resources>
 </document>

@@ -27,6 +27,10 @@
 		0F0C7C1022E3253400578584 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C0F22E3253400578584 /* ErrorManager.swift */; };
 		0F0C7C1222E4F15200578584 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C1122E4F15200578584 /* Download.swift */; };
 		0F0C7C1422E5117D00578584 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0C7C1322E5117D00578584 /* Thumbnail.swift */; };
+		0F6F433822E65874008D3F79 /* TrackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F433722E65874008D3F79 /* TrackButton.swift */; };
+		0F6F433A22E71434008D3F79 /* Soundtrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F433922E71434008D3F79 /* Soundtrack.swift */; };
+		0F6F433E22E72F5D008D3F79 /* LocalStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F433D22E72F5D008D3F79 /* LocalStorageService.swift */; };
+		0F6F434022E75978008D3F79 /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F6F433F22E75978008D3F79 /* LaunchView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		0F0C7C0F22E3253400578584 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		0F0C7C1122E4F15200578584 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		0F0C7C1322E5117D00578584 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		0F6F433722E65874008D3F79 /* TrackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackButton.swift; sourceTree = "<group>"; };
+		0F6F433922E71434008D3F79 /* Soundtrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soundtrack.swift; sourceTree = "<group>"; };
+		0F6F433D22E72F5D008D3F79 /* LocalStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageService.swift; sourceTree = "<group>"; };
+		0F6F433F22E75978008D3F79 /* LaunchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,7 @@
 				0F0C7BCB22E1C44200578584 /* AppDelegate.swift */,
 				0F0C7BD222E1C44400578584 /* Assets.xcassets */,
 				0F0C7BD722E1C44400578584 /* Info.plist */,
+				0F6F433F22E75978008D3F79 /* LaunchView.xib */,
 			);
 			path = iMusic;
 			sourceTree = "<group>";
@@ -123,6 +132,7 @@
 			children = (
 				0F0C7C0022E2075A00578584 /* TrackListService.swift */,
 				0F0C7C0222E2087100578584 /* DownloadService.swift */,
+				0F6F433D22E72F5D008D3F79 /* LocalStorageService.swift */,
 				0F0C7C0622E21A3100578584 /* JSON */,
 			);
 			path = Services;
@@ -132,8 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				0F0C7BF822E1EA0300578584 /* Track.swift */,
-				0F0C7C1322E5117D00578584 /* Thumbnail.swift */,
 				0F0C7C1122E4F15200578584 /* Download.swift */,
+				0F0C7C1322E5117D00578584 /* Thumbnail.swift */,
+				0F6F433922E71434008D3F79 /* Soundtrack.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -144,6 +155,7 @@
 				0F0C7BF022E1CD5A00578584 /* TrackListView.xib */,
 				0F0C7BFB22E1EC4D00578584 /* TrackTableViewCell.xib */,
 				0F0C7BFA22E1EC4D00578584 /* TrackTableViewCell.swift */,
+				0F6F433722E65874008D3F79 /* TrackButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -232,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F0C7BFD22E1EC4E00578584 /* TrackTableViewCell.xib in Resources */,
+				0F6F434022E75978008D3F79 /* LaunchView.xib in Resources */,
 				0F0C7BF122E1CD5A00578584 /* TrackListView.xib in Resources */,
 				0F0C7BD322E1C44400578584 /* Assets.xcassets in Resources */,
 			);
@@ -248,17 +261,20 @@
 				0F0C7C0B22E2FD0900578584 /* TrackViewModel.swift in Sources */,
 				0F0C7C1222E4F15200578584 /* Download.swift in Sources */,
 				0F0C7C1022E3253400578584 /* ErrorManager.swift in Sources */,
+				0F6F433E22E72F5D008D3F79 /* LocalStorageService.swift in Sources */,
 				0F0C7BEA22E1C5AD00578584 /* TrackListInteractor.swift in Sources */,
 				0F0C7BE822E1C59800578584 /* TrackListConfigurator.swift in Sources */,
 				0F0C7BE422E1C58000578584 /* TrackListPresenter.swift in Sources */,
 				0F0C7BF922E1EA0300578584 /* Track.swift in Sources */,
 				0F0C7BFC22E1EC4E00578584 /* TrackTableViewCell.swift in Sources */,
+				0F6F433A22E71434008D3F79 /* Soundtrack.swift in Sources */,
 				0F0C7BE222E1C56400578584 /* TrackListView.swift in Sources */,
 				0F0C7C0822E21A5500578584 /* JSONTrackList.swift in Sources */,
 				0F0C7BEC22E1C5EA00578584 /* TrackListProtocols.swift in Sources */,
 				0F0C7C0322E2087100578584 /* DownloadService.swift in Sources */,
 				0F0C7BE622E1C58A00578584 /* TrackListRouter.swift in Sources */,
 				0F0C7C0122E2075A00578584 /* TrackListService.swift in Sources */,
+				0F6F433822E65874008D3F79 /* TrackButton.swift in Sources */,
 				0F0C7BCC22E1C44200578584 /* AppDelegate.swift in Sources */,
 				0F0C7BFF22E2038800578584 /* TrackManager.swift in Sources */,
 			);

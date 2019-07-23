@@ -43,11 +43,18 @@ extension TrackListView: TrackListViewProtocol {
     
     func setupInitialView() {
         tracksTableView.register(UINib(nibName: TableCells.track.name, bundle: nil), forCellReuseIdentifier: TableCells.track.id)
+        tracksTableView.isHidden = true
         tracksTableView.delegate = self
         tracksTableView.dataSource = self
         tracksTableView.tableFooterView = UIView()
         
         tracksSearchBar.delegate = self
+    }
+    
+    func toggleTracksTableView(shouldHide: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.tracksTableView.isHidden = shouldHide
+        }
     }
     
     func refreshTracks() {
@@ -56,7 +63,16 @@ extension TrackListView: TrackListViewProtocol {
         }
     }
     
-    func setThumbnail(withImage image: UIImage, forCellindex index: Int) {
+    func setTrackState(_ trackState: TrackState, forCellIndex index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        DispatchQueue.main.async {
+            if let cell = self.tracksTableView.cellForRow(at: indexPath) as? TrackTableViewCell {
+                cell.trackState = trackState
+            }
+        }
+    }
+    
+    func setThumbnail(_ image: UIImage?, forCellIndex index: Int) {
         let indexPath = IndexPath(row: index, section: 0)        
         DispatchQueue.main.async {
             if let cell = self.tracksTableView.cellForRow(at: indexPath) as? TrackTableViewCell {
@@ -75,6 +91,27 @@ extension TrackListView: TrackListViewProtocol {
     }
 }
 
+// MARK: - TrackTableViewCellDelegate
+extension TrackListView: TrackTableViewCellDelegate {
+    
+    func trackButtonClicked(forCell cell: UITableViewCell, withTrackButtonState trackButtonState: TrackState?) {
+        guard
+            let trackButtonState = trackButtonState,
+            let indexPath = tracksTableView.indexPath(for: cell)
+        else { return }
+        
+        switch trackButtonState {
+        case .waitToDownload:
+            presenter?.getSoundTrack(forCellIndex: indexPath.row)
+        case .downloading:
+            presenter?.cancelSoundTrack(forCellIndex: indexPath.row)
+            break
+        case .waitToPlay:
+            presenter?.playSoundTrack(forCellIndex: indexPath.row)
+        }
+    }
+}
+
 // MARK: - UITableViewDataSource
 extension TrackListView: UITableViewDataSource {
     
@@ -88,6 +125,7 @@ extension TrackListView: UITableViewDataSource {
         }
         
         cell.dataSource = self
+        cell.delegate = self
         cell.viewModel = presenter?.getTrackViewModel(forCellIndex: indexPath.row)
         
         return cell

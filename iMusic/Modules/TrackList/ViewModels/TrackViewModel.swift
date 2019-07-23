@@ -7,6 +7,9 @@
 //
 
 struct TrackViewModel {
+    
     let name: String?
     let artist: String?
+    
+    var state: TrackState?
 }

@@ -13,9 +13,7 @@ protocol TrackTableViewCellDataSource {
 }
 
 protocol TrackTableViewCellDelegate {
-    func trackDownloadStart(forCell cell: UITableViewCell)
-    func trackDownloadPause(forCell cell: UITableViewCell)
-    func trackDownloadCancel(forCell cell: UITableViewCell)
+    func trackButtonClicked(forCell cell: UITableViewCell, withTrackButtonState trackButtonState: TrackState?)
 }
 
 class TrackTableViewCell: UITableViewCell {
@@ -26,9 +24,11 @@ class TrackTableViewCell: UITableViewCell {
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var trackArtistLabel: UILabel!
     @IBOutlet weak var thumbnailSpinner: UIActivityIndicatorView!
+    @IBOutlet weak var trackButton: TrackButton!
     
     var dataSource: TrackTableViewCellDataSource?
     var delegate: TrackTableViewCellDelegate?
+    
     var thumbnailImage: UIImage? {
         willSet(image) {
             trackThumbnailImageView.image = image
@@ -40,10 +40,17 @@ class TrackTableViewCell: UITableViewCell {
             trackNameLabel.text = trackViewModel?.name ?? ""
             trackArtistLabel.text = trackViewModel?.artist ?? ""
             trackThumbnailImageView.image = nil
+            trackState = trackViewModel?.state
             
             DispatchQueue.main.async {
                 self.dataSource?.getTrackThumbnail(forCell: self)
             }
+        }
+    }
+    
+    var trackState: TrackState? {
+        didSet {
+            trackButton.trackState = trackState
         }
     }
     
@@ -62,5 +69,9 @@ class TrackTableViewCell: UITableViewCell {
         
         trackThumbnailImageView.layer.cornerRadius = 5
         trackThumbnailImageView.layer.masksToBounds = true
+    }
+    
+    @IBAction func trackButtonClicked(_ sender: Any) {
+        delegate?.trackButtonClicked(forCell: self, withTrackButtonState: trackButton.trackState)
     }
 }

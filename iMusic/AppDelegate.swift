@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if window == nil {
             window = UIWindow(frame: UIScreen.main.bounds)
-            
-            let trackListVC = TrackListView()
-            window!.rootViewController = trackListVC
-            window!.makeKeyAndVisible()
         }
+        
+        let trackListVC = TrackListView()
+        window!.rootViewController = trackListVC
+        window!.makeKeyAndVisible()
         
         return true
     }

@@ -35,6 +35,14 @@ class DownloadService<Resource: Downloadable & Hashable> {
         return .success(decodeResult?.results)
     }
     
+    func releaseExistDownloads() {
+        for download in existDownloads {
+            download.value.dataTask.cancel()
+        }
+        
+        existDownloads = [:]
+    }
+    
     func startDownload(_ resource: Resource, completion: @escaping DownloadCompletionHandler) {
         
         guard existDownloads[resource.id] == nil else { return }
