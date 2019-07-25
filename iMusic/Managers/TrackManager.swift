@@ -13,6 +13,7 @@ typealias TrackThumbnailHandler = (ServiceResult<UIImage>) -> Void
 typealias TrackSoundHandler = (ServiceResult<Data>) -> Void
 
 enum ServiceResult<T> {
+//    typealias Completion = ((ServiceResult<T>) -> Void)?
     case success(T)
     case failure(AppError)
 }
@@ -99,7 +100,7 @@ extension TrackManager: TrackManagerProtocol {
                 return
         }
         
-        trackSoundDownloadService.startDownload(soundtrack) { (result) in
+        trackSoundDownloadService.startDownload(soundtrack, progressHandler: nil, completionHandler: { (result) in
             switch result {
             case .success(let data):
                 if let soundTrackFileName = self.getSoundTrackName(forTrack: track) {
@@ -109,7 +110,7 @@ extension TrackManager: TrackManagerProtocol {
             case .failure(let appError):
                 completion(.failure(appError))
             }
-        }
+        })
     }
     
     func cancelFetchSoundtrack(forTrack track: Track) {
@@ -137,7 +138,7 @@ extension TrackManager: TrackManagerProtocol {
             return
         }
         
-        trackThumbnailDownloadService.startDownload(thumbnail) { [weak self] (result) in
+        trackThumbnailDownloadService.startDownload(thumbnail, progressHandler: nil, completionHandler: { [weak self] (result) in
             switch result {
             case .success(let imageData):
                 guard let image = UIImage(data: imageData) else {
@@ -148,7 +149,7 @@ extension TrackManager: TrackManagerProtocol {
             case .failure(let appError):
                 completion(.failure(appError))
             }
-        }
+        })
     }
     
     func getSoundTrackURL(forTrack track: Track) -> URL? {

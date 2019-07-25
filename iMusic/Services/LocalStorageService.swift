@@ -8,12 +8,9 @@
 
 import Foundation
 
-typealias SavingFileHandler = (ServiceResult<URL>) -> Void
-
 class LocalStorageService {
     
-    private lazy var localStorageService = LocalStorageService()
-    private lazy var fileManager = FileManager.default
+    private var fileManager = FileManager.default
 
     func getExistFileURL(withName name: String) -> URL? {
         let documentPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
